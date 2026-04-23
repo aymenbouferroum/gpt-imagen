@@ -1,0 +1,60 @@
+{
+  "name": "visual-forge-studio",
+  "version": "1.0.0",
+  "description": "Claude Code plugin for serious image generation and editing workflows using Codex or the OpenAI Images API.",
+  "author": {
+    "name": "Visual Forge Contributors",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME"
+  },
+  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
+  "repository": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "images",
+    "design",
+    "frontend",
+    "game-assets",
+    "research-figures",
+    "codex",
+    "openai"
+  ],
+  "userConfig": {
+    "provider_mode": {
+      "type": "string",
+      "title": "Provider mode",
+      "description": "Choose auto, codex, or openai.",
+      "default": "auto"
+    },
+    "openai_api_key": {
+      "type": "string",
+      "title": "OpenAI API key",
+      "description": "Optional API key used when provider mode is openai or when auto falls back to the OpenAI API.",
+      "sensitive": true,
+      "required": false
+    },
+    "openai_image_model": {
+      "type": "string",
+      "title": "OpenAI image model",
+      "description": "Default OpenAI image model. Use a GPT Image model your account has access to.",
+      "default": "gpt-image-2"
+    },
+    "openai_base_url": {
+      "type": "string",
+      "title": "OpenAI base URL",
+      "description": "Base URL for the Images API.",
+      "default": "https://api.openai.com/v1"
+    },
+    "codex_model": {
+      "type": "string",
+      "title": "Codex model",
+      "description": "Model passed to codex exec when the Codex path is used.",
+      "default": "gpt-5.4"
+    },
+    "default_output_dir": {
+      "type": "directory",
+      "title": "Default output directory",
+      "description": "Optional default directory for saved images. Leave blank to save into the current workspace.",
+      "required": false
+    }
+  }
+}

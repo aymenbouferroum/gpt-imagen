@@ -1,0 +1,41 @@
+{
+  "name": "visual-forge",
+  "owner": {
+    "name": "Visual Forge Contributors"
+  },
+  "metadata": {
+    "description": "Marketplace for image generation, editing, and visual design workflows in Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "visual-forge-studio",
+      "source": "./plugins/visual-forge-studio",
+      "description": "Generate and edit visuals for product design, frontend mockups, game assets, paper figures, and branded image workflows using Codex or the OpenAI Images API.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Visual Forge Contributors"
+      },
+      "homepage": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
+      "repository": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
+      "license": "MIT",
+      "keywords": [
+        "image-generation",
+        "design",
+        "frontend",
+        "game-assets",
+        "paper-figures",
+        "openai",
+        "codex"
+      ],
+      "category": "design",
+      "tags": [
+        "images",
+        "creative-tools",
+        "ui",
+        "research"
+      ],
+      "strict": true
+    }
+  ]
+}
