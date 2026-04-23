@@ -68,12 +68,15 @@ def codex_available() -> bool:
 def codex_logged_in() -> bool:
     if not codex_available():
         return False
-    result = subprocess.run(
-        ["codex", "login", "status"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
+    try:
+        result = subprocess.run(
+            ["codex", "login", "status"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return False
     text = (result.stdout + result.stderr).strip()
     return result.returncode == 0 and "Logged in" in text
 
