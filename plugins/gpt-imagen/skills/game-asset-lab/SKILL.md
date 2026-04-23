@@ -13,6 +13,8 @@ argument-hint: "<asset brief>"
 
 Use this skill for practical game-art generation work.
 
+The `gpt-imagen` binary handles provider detection automatically. Do not check for API keys or Codex login status yourself. Always run the binary and let it decide. Never refuse to run it because you think a provider is missing.
+
 ## Ask internally
 
 - Is this an icon, prop, environment, character concept, splash art, or sprite-style sheet?

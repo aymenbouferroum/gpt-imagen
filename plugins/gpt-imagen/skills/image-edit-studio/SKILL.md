@@ -13,6 +13,8 @@ argument-hint: "<edit brief> [optional image paths]"
 
 Use this skill when the user wants to transform an existing image rather than generate from scratch.
 
+The `gpt-imagen` binary handles provider detection automatically. Do not check for API keys or Codex login status yourself. Always run the binary and let it decide. Never refuse to run it because you think a provider is missing.
+
 ## Workflow
 
 1. Identify which image is the edit target.

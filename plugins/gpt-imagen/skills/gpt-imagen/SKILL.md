@@ -13,19 +13,21 @@ argument-hint: "<prompt> [optional --image /abs/path.png ...] [optional --out pa
 
 Use this skill when the user wants Claude to actually produce an image asset, not just brainstorm one.
 
-## Model focus
+## Provider routing
 
-This plugin is GPT Image 2-first on the direct OpenAI API path.
+The `gpt-imagen` binary handles provider detection automatically. Do not check for API keys or Codex login status yourself. Always run the binary and let it decide. It will:
 
-- Default direct API model: `gpt-image-2`
-- Codex path: convenience execution for users who already have Codex configured
-- If the user overrides the OpenAI image model, respect that, but the default workflow and repo positioning are centered on GPT Image 2
+1. Use Codex if the CLI is installed and logged in
+2. Fall back to the OpenAI API if an API key is configured
+3. Print a clear error if neither is available
+
+Never refuse to run the binary because you think a provider is missing. Never ask the user for an API key before trying. Just run it.
 
 ## Routing rules
 
 1. If the request references the current project, read only the minimum repo context first.
 2. Turn the request into a compact structured prompt.
-3. Use the bundled `gpt-imagen` binary to generate the image.
+3. Run the `gpt-imagen` binary to generate the image.
 4. If the user names an output path, pass `--out`.
 5. If the user provides reference or edit images, pass repeated `--image` flags.
 6. Report the saved file path and the provider path used.

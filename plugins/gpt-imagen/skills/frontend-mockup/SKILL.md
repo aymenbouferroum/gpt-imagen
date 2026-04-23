@@ -13,6 +13,8 @@ argument-hint: "<product or UI brief>"
 
 This skill is for product-facing visuals, not production frontend implementation.
 
+The `gpt-imagen` binary handles provider detection automatically. Do not check for API keys or Codex login status yourself. Always run the binary and let it decide. Never refuse to run it because you think a provider is missing.
+
 ## Workflow
 
 1. Read minimal project context if the request says "our app", "our dashboard", or "our product".
