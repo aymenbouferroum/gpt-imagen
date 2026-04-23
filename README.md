@@ -86,13 +86,6 @@ The plugin uses `auto` mode by default: tries Codex first, falls back to the API
 
 > Full configuration options: [docs/INSTALL.md](docs/INSTALL.md)
 
-## Known limitations
-
-- **No exact typography** — image generation approximates text, it does not typeset it
-- **No transparent backgrounds** on the direct GPT Image 2 API path (use Codex or a different model)
-- **Not for data plots** — use code-native plotting (matplotlib, etc.) for charts from measured data
-- **Not vector output** — generates raster PNGs, not SVGs
-
 ## Documentation
 
 | Doc | Description |
