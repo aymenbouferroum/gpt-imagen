@@ -16,9 +16,11 @@
 
 ## Install
 
-```bash
-claude plugin marketplace add aymenbouferroum/gpt-imagen
-claude plugin install gpt-imagen@gpt-imagen
+In Claude Code:
+
+```
+plugin marketplace add aymenbouferroum/gpt-imagen
+plugin install gpt-imagen@gpt-imagen
 ```
 
 Then use any of the five included skills:
