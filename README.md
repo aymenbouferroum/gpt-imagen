@@ -21,6 +21,7 @@ In Claude Code:
 ```
 plugin marketplace add aymenbouferroum/gpt-imagen
 plugin install gpt-imagen@gpt-imagen
+/reload-plugins
 ```
 
 Then use any of the five included skills:
