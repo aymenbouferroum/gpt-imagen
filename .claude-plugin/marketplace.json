@@ -4,7 +4,7 @@
     "name": "GPT Imagen Contributors"
   },
   "metadata": {
-    "description": "Marketplace for image generation, editing, and visual design workflows in Claude Code.",
+    "description": "Image generation, editing, and visual design workflows for Claude Code.",
     "version": "1.0.0"
   },
   "plugins": [

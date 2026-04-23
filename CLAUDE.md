@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-GPT Imagen is a Claude Code plugin marketplace shipping a single plugin (`gpt-imagen`) for image generation and editing workflows. It routes requests to either a local Codex CLI or the OpenAI Images API. The entire plugin is stdlib-only Python 3 — no external dependencies, no package manager, no build step.
+GPT Imagen is a Claude Code plugin (`gpt-imagen`) for image generation and editing workflows. It routes requests to either a local Codex CLI or the OpenAI Images API. The entire plugin is stdlib-only Python 3 — no external dependencies, no package manager, no build step.
 
 ## Development Commands
 
@@ -15,7 +15,7 @@ claude plugin validate .
 # Test plugin directly (dev mode)
 claude --plugin-dir ./plugins/gpt-imagen
 
-# Test full marketplace install flow
+# Test full install flow
 claude plugin marketplace add .
 claude plugin install gpt-imagen@gpt-imagen
 
@@ -77,9 +77,9 @@ plugins/gpt-imagen/
     └── image-edit-studio/       # Background removal, restyling, edits
 ```
 
-### Marketplace Layer
+### Plugin Registry
 
-`.claude-plugin/marketplace.json` at repo root registers the marketplace and points to the single plugin. The plugin's own `.claude-plugin/plugin.json` defines user-configurable options (provider mode, API keys, models, output directory).
+`.claude-plugin/marketplace.json` at repo root registers the plugin for Claude Code's install system. The plugin's own `.claude-plugin/plugin.json` defines user-configurable options (provider mode, API keys, models, output directory).
 
 ## Key Design Decisions
 

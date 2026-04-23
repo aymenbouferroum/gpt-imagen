@@ -22,7 +22,7 @@ claude plugin validate .
 claude --plugin-dir ./plugins/gpt-imagen
 ```
 
-4. Test the marketplace flow locally:
+4. Test the full install flow locally:
 
 ```bash
 claude plugin marketplace add .

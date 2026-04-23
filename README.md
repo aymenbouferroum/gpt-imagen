@@ -1,194 +1,109 @@
-# GPT Imagen
+<p align="center">
+  <img src="assets/branding/gpt-imagen-claude-code-gpt-image-2-header.png" width="800" alt="GPT Imagen — Claude Code meets GPT Image 2">
+</p>
 
-GPT Imagen is a Claude Code plugin marketplace built around one core idea: make Claude Code feel like Claude Code merged with GPT Image 2.
+<h1 align="center">GPT Imagen</h1>
+<p align="center">A Claude Code plugin that gives Claude the ability to generate and edit images using GPT Image 2.</p>
 
-![GPT Imagen logo](assets/branding/gpt-imagen-logo.png)
-
-![Claude Code + GPT Image 2 hero](assets/branding/gpt-imagen-claude-code-gpt-image-2-header.png)
-
-GPT Imagen is intentionally GPT Image 2-first on the direct OpenAI API path, and it keeps a Codex-powered path for users who want Claude to drive image workflows without wiring an API key first.
-
-It gives Claude a reliable way to create and edit visuals for:
-
-- frontend and product design
-- landing pages and dashboard mockups
-- game assets and concept art
-- research and paper-cover visuals
-- product cutouts and visual asset generation
-
-It supports two execution paths:
-
-- local Codex subscription through `codex exec`
-- OpenAI Images API through the user's own API key
-
-## Why this exists
-
-Most image skills stop at "write a better prompt." That is not enough.
-
-GPT Imagen gives Claude:
-
-- capability-aware provider routing
-- reusable visual prompt scaffolds
-- practical workflows for UI, games, assets, and paper visuals
-- consistent output saving behavior
-- a marketplace-friendly install story
-
-## Why GPT Image 2
-
-The main point of this repo is GPT Image 2.
-
-OpenAI currently documents GPT Image 2 as its state-of-the-art image generation model, and specifically describes it as the model for fast, high-quality image generation and editing with flexible image sizes and high-fidelity image inputs. That is the reason this plugin is opinionated around GPT Image 2 instead of treating all image models as interchangeable.
-
-Claude Code is strong at orchestration, repo context, task decomposition, and prompt refinement. GPT Image 2 is strong at turning those structured intents into actual images. GPT Imagen exists to join those two strengths into one workflow:
-
-- Claude Code reads the repo and understands what the user is building
-- Claude Code turns vague requests into a visual spec
-- GPT Image 2 handles generation and editing on the direct API path
-- Codex remains available as a no-key convenience path for users who already work that way
-
-This means the repo is not trying to be a generic wrapper for every image model. It is deliberately optimized around GPT Image 2 as the primary default.
-
-## GPT Image 2 strengths this repo is built for
-
-- High-end generation and editing in one model, instead of splitting the workflow across weak specialized wrappers
-- Flexible image sizes, including square, portrait, landscape, and larger resolutions on the direct API path
-- High-fidelity image inputs by default for edit and reference-image workflows
-- Strong fit for UI concepts, game assets, product renders, and conceptual research figures
-- Clean pairing with a reasoning model or agent layer that can revise prompts before generation
-
-## What I will not claim
-
-This repo is intentionally pro GPT Image 2, but it does not make unsupported leaderboard claims.
-
-- It does not claim GPT Image 2 "beats everyone" as a factual benchmark statement
-- It does not pretend image generation is perfect at exact typography or vector-like determinism
-- It does not hide GPT Image 2 limitations, such as the current lack of transparent background support on the direct API path
-
-## Official OpenAI references
-
-- GPT Image 2 model page: <https://developers.openai.com/api/docs/models/gpt-image-2>
-- Image generation guide: <https://developers.openai.com/api/docs/guides/image-generation>
-- Image generation tool guide: <https://developers.openai.com/api/docs/guides/tools-image-generation>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat" alt="License: MIT"></a>
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat" alt="Version 1.0.0">
+  <img src="https://img.shields.io/badge/platform-Claude%20Code-7C3AED?style=flat" alt="Platform: Claude Code">
+  <img src="https://img.shields.io/badge/category-Design-orange?style=flat" alt="Category: Design">
+  <img src="https://img.shields.io/badge/python-3%20(stdlib%20only)-yellow?style=flat" alt="Python 3 stdlib only">
+  <a href="https://platform.openai.com/docs/models/gpt-image-2"><img src="https://img.shields.io/badge/model-GPT%20Image%202-10a37f?style=flat" alt="Model: GPT Image 2"></a>
+</p>
 
 ## Install
-
-### Marketplace install
 
 ```bash
 claude plugin marketplace add aymenbouferroum/gpt-imagen
 claude plugin install gpt-imagen@gpt-imagen
 ```
 
-### Local dev install
+Then use any of the five included skills:
 
-```bash
-claude plugin marketplace add .
-claude plugin install gpt-imagen@gpt-imagen
+```
+/gpt-imagen  /frontend-mockup  /game-asset-lab  /paper-figure-visual  /image-edit-studio
 ```
 
-### Direct plugin dev mode
+> Full provider setup and local dev install: [docs/INSTALL.md](docs/INSTALL.md)
 
-```bash
-claude --plugin-dir ./plugins/gpt-imagen
-```
+## Skills
 
-More detail: [docs/INSTALL.md](docs/INSTALL.md)
+| Skill | What it does |
+|-------|-------------|
+| `/gpt-imagen` | General-purpose image generation and editing |
+| `/frontend-mockup` | Landing pages, dashboards, product heroes, app store screenshots |
+| `/game-asset-lab` | Sprites, props, icons, key art, and stylized game visuals |
+| `/paper-figure-visual` | Conceptual research figures, pipeline diagrams, cover-style paper art |
+| `/image-edit-studio` | Background removal, restyling, compositing, and reference-driven edits |
 
-## Included skills
+## Examples
 
-- `/gpt-imagen`
-  General-purpose image generation and editing workflow
-- `/frontend-mockup`
-  UI and product-visual workflows for sites, apps, dashboards, and launch assets
-- `/game-asset-lab`
-  Sprites, props, icons, promo art, and stylized game visual assets
-- `/paper-figure-visual`
-  Conceptual research figures, pipeline visuals, and illustration-style paper assets
-- `/image-edit-studio`
-  Background cleanup, restyling, object-focused edits, and reference-driven changes
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="assets/examples/frontend-mockup-example.png" width="400"><br>
+<strong>/frontend-mockup</strong> — Dashboard hero
+</td>
+<td align="center" width="50%">
+<img src="assets/examples/game-asset-example.png" width="400"><br>
+<strong>/game-asset-lab</strong> — Fantasy inventory icons
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<img src="assets/examples/paper-figure-example.png" width="400"><br>
+<strong>/paper-figure-visual</strong> — Pipeline concept figure
+</td>
+<td align="center" width="50%">
+<img src="assets/examples/product-asset-example.png" width="400"><br>
+<strong>/gpt-imagen</strong> — Product render
+</td>
+</tr>
+</table>
 
-## Example gallery
+## How it works
 
-### Frontend mockup reference
+1. **You describe what you need** — a landing page hero, a game icon set, a paper figure, or an edit to an existing image.
+2. **Claude refines your request** — it reads your repo context and structures a vague ask into a visual prompt.
+3. **GPT Image 2 generates the image** — via the OpenAI Images API (direct) or through Codex CLI (convenience path).
+4. **The result lands in your workspace** — saved as a timestamped PNG, ready for iteration.
 
-![Frontend example](assets/examples/frontend-mockup-example.png)
+Claude handles orchestration and prompt refinement. GPT Image 2 handles pixels.
 
-### Game asset reference
+## Configuration
 
-![Game asset example](assets/examples/game-asset-example.png)
+GPT Imagen supports two provider paths:
 
-### Paper figure reference
+| Provider | Setup | Best for |
+|----------|-------|----------|
+| **OpenAI API** (default) | Set `openai_api_key` in plugin config or `OPENAI_API_KEY` env var | Full GPT Image 2 control, mask-based edits |
+| **Codex CLI** | Have `codex` installed and logged in | Zero-config convenience for existing Codex users |
 
-![Paper figure example](assets/examples/paper-figure-example.png)
+The plugin uses `auto` mode by default: tries Codex first, falls back to the API.
 
-### Product asset reference
+> Full configuration options: [docs/INSTALL.md](docs/INSTALL.md)
 
-![Product asset example](assets/examples/product-asset-example.png)
+## Known limitations
 
-## Provider model
-
-GPT Imagen supports two ways to run:
-
-### 1. Codex subscription
-
-If `codex` is installed and logged in, the plugin can route image tasks through the local Codex CLI. This is the fastest path for users who already have a Codex-capable setup.
-
-### 2. OpenAI API key
-
-If the user provides `openai_api_key` in plugin configuration, the plugin can call the OpenAI Images API directly. The default image model is configurable and ships set to `gpt-image-2`.
-
-This is the path that makes the plugin explicitly GPT Image 2-first.
-
-The plugin prefers `auto` mode by default:
-
-1. use Codex if available and logged in
-2. otherwise use the OpenAI API if configured
-3. otherwise fail with a clear setup message
-
-## Claude Code x GPT Image 2
-
-The workflow this repository wants is simple:
-
-1. Claude Code understands the project, product, paper, game, or design brief.
-2. Claude Code structures the ask into a stronger visual prompt.
-3. GPT Image 2 generates or edits the image.
-4. Claude Code saves the result back into the working repo and keeps iterating.
-
-OpenAI's image-generation tool docs also note that when using the image generation tool, a mainline model such as `gpt-5.4` can automatically revise the prompt for improved performance. That is exactly the kind of orchestration story this plugin leans into.
-
-## Repo structure
-
-```text
-gpt-imagen/
-├── .claude-plugin/marketplace.json
-├── docs/
-├── assets/
-└── plugins/
-    └── gpt-imagen/
-        ├── .claude-plugin/plugin.json
-        ├── bin/gpt-imagen
-        ├── scripts/vforge.py
-        ├── references/
-        └── skills/
-```
-
-## Safety and realism
-
-GPT Imagen is optimized for practical creative work, not hype:
-
-- it does not promise exact typography or perfect layout geometry
-- it distinguishes concept figures from numeric charts
-- it keeps vector-native work out of the image pipeline
-- it saves generated files predictably so users can keep working
+- **No exact typography** — image generation approximates text, it does not typeset it
+- **No transparent backgrounds** on the direct GPT Image 2 API path (use Codex or a different model)
+- **Not for data plots** — use code-native plotting (matplotlib, etc.) for charts from measured data
+- **Not vector output** — generates raster PNGs, not SVGs
 
 ## Documentation
 
-- [Install](docs/INSTALL.md)
-- [Tutorial](docs/TUTORIAL.md)
-- [Capabilities](docs/CAPABILITIES.md)
-- [Contributing](CONTRIBUTING.md)
-- [Acknowledgments](ACKNOWLEDGMENTS.md)
+| Doc | Description |
+|-----|-------------|
+| [Install Guide](docs/INSTALL.md) | Provider setup, local dev install, configuration reference |
+| [Tutorial](docs/TUTORIAL.md) | Step-by-step examples for each skill |
+| [Capabilities](docs/CAPABILITIES.md) | What GPT Imagen can and cannot do |
+| [Contributing](CONTRIBUTING.md) | Development workflow and release process |
+| [Changelog](CHANGELOG.md) | Version history |
+| [Acknowledgments](ACKNOWLEDGMENTS.md) | Credits |
 
 ## License
 
-MIT
+[MIT](LICENSE)

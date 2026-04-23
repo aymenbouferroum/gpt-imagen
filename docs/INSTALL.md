@@ -1,6 +1,6 @@
 # Install
 
-## Add the marketplace from GitHub
+## Install from GitHub
 
 ```bash
 claude plugin marketplace add aymenbouferroum/gpt-imagen
@@ -46,3 +46,14 @@ On plugin enable, configure:
 `auto` prefers Codex when available, then falls back to the API path.
 
 If you stay on the direct API default, note that `gpt-image-2` currently does not support transparent backgrounds. Use `auto` or `opaque`, or pick another GPT Image model when transparency is required.
+
+## Configuration reference
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `provider_mode` | string | `auto` | Provider selection: `auto`, `codex`, or `openai` |
+| `openai_api_key` | string (sensitive) | — | OpenAI API key for the direct API path |
+| `openai_image_model` | string | `gpt-image-2` | Image model used on the OpenAI path |
+| `openai_base_url` | string | `https://api.openai.com/v1` | Base URL for the Images API |
+| `codex_model` | string | `gpt-5.4` | Model passed to `codex exec` |
+| `default_output_dir` | directory | (workspace) | Default directory for saved images; leave blank for current workspace |

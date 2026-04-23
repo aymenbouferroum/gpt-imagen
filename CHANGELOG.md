@@ -2,7 +2,7 @@
 
 ## 1.0.0 - 2026-04-23
 
-- Initial marketplace release
+- Initial release
 - Added the `gpt-imagen` plugin
 - Added Codex-subscription routing through `codex exec`
 - Added OpenAI Images API fallback with user-configurable API key and model

@@ -1,43 +1,33 @@
 # Capabilities
 
-GPT Imagen is deliberately GPT Image 2-first on the direct OpenAI API path.
+## What GPT Imagen is built for
 
-## Why GPT Image 2 is the default
+- Product hero images and marketing visuals
+- Landing page and dashboard mockups
+- Concept art and game asset ideation
+- Paper-cover and pipeline concept figures
+- Background removal and reference-driven image edits
 
-- OpenAI positions GPT Image 2 as its state-of-the-art image generation model
-- the official image guide presents it as the model for high-quality generation and editing
-- it fits the exact workflows this plugin targets: frontend concepts, game assets, product imagery, and conceptual technical visuals
+## What it is not built for
 
-## What GPT Imagen is good at
+- Deterministic SVG or vector output
+- Exact typography-heavy designs
+- Pixel-perfect interface screenshots with production copy
+- Final academic charts and plots from measured data
+- Transparent-background generation on the direct `gpt-image-2` API path
 
-- product hero images
-- landing page and dashboard mockups
-- concept art and game asset ideation
-- marketing visuals and social assets
-- paper-cover and pipeline concept figures
-- background removal and reference-driven edits
+## Provider comparison
 
-## What it is not good at
-
-- deterministic SVG output
-- exact typography-heavy posters
-- pixel-perfect interface screenshots with exact production copy
-- final academic charts derived from measured data
-- transparent-background generation on the direct `gpt-image-2` API path
-
-## Provider matrix
-
-| Provider | Best for | Notes |
+| | OpenAI Images API | Codex CLI |
 |---|---|---|
-| Codex subscription | zero-setup image generation from Claude when Codex is already logged in | Uses `codex exec` and the built-in image workflow |
-| OpenAI Images API | explicit GPT Image 2-first execution, controlled model selection, mask-based edits | Defaults to `gpt-image-2` and gives direct control over output pathing |
+| **Model** | `gpt-image-2` (configurable) | Set by Codex (configurable via `codex_model`) |
+| **Edit support** | Full (mask-based edits) | Prompt-driven |
+| **Transparency** | Not supported on `gpt-image-2` | Depends on Codex model |
+| **Setup** | API key required | `codex login` required |
+| **Best for** | Controlled generation, edits, specific model selection | Quick generation without API key management |
 
-## Practical reading of the model choice
+## GPT Image 2 reference links
 
-This plugin is not trying to be neutral between image models.
-
-The default assumption is:
-
-- if you want the direct API path, you probably want GPT Image 2
-- if you want a convenience path through a local Codex setup, the plugin still supports that
-- if you want a different GPT Image model, you can override it, but the repo copy and defaults are optimized around GPT Image 2
+- [GPT Image 2 model page](https://platform.openai.com/docs/models/gpt-image-2)
+- [Image generation guide](https://platform.openai.com/docs/guides/image-generation)
+- [Image generation tool guide](https://platform.openai.com/docs/guides/tools-image-generation)
