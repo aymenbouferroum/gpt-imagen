@@ -1,13 +1,13 @@
 {
-  "name": "visual-forge-studio",
+  "name": "gpt-imagen",
   "version": "1.0.0",
-  "description": "Claude Code plugin for serious image generation and editing workflows using Codex or the OpenAI Images API.",
+  "description": "Claude Code plugin for GPT Image 2-first image generation and editing workflows, with Codex convenience routing and direct OpenAI Images API execution.",
   "author": {
-    "name": "Visual Forge Contributors",
-    "url": "https://github.com/YOUR_GITHUB_USERNAME"
+    "name": "GPT Imagen Contributors",
+    "url": "https://github.com/aymenbouferroum"
   },
-  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
-  "repository": "https://github.com/YOUR_GITHUB_USERNAME/visual-forge-marketplace",
+  "homepage": "https://github.com/aymenbouferroum/gpt-imagen-marketplace",
+  "repository": "https://github.com/aymenbouferroum/gpt-imagen-marketplace",
   "license": "MIT",
   "keywords": [
     "images",

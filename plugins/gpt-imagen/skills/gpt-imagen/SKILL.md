@@ -1,5 +1,5 @@
 ---
-name: visual-forge
+name: gpt-imagen
 description: Generate or edit raster images for product design, frontend concepts, game assets, marketing visuals, and conceptual paper figures. Use when Claude should create a real image file through Codex or the OpenAI Images API instead of only suggesting prompts.
 allowed-tools:
   - Bash
@@ -9,15 +9,23 @@ allowed-tools:
 argument-hint: "<prompt> [optional --image /abs/path.png ...] [optional --out path]"
 ---
 
-# Visual Forge
+# GPT Imagen
 
 Use this skill when the user wants Claude to actually produce an image asset, not just brainstorm one.
+
+## Model focus
+
+This plugin is GPT Image 2-first on the direct OpenAI API path.
+
+- Default direct API model: `gpt-image-2`
+- Codex path: convenience execution for users who already have Codex configured
+- If the user overrides the OpenAI image model, respect that, but the default workflow and repo positioning are centered on GPT Image 2
 
 ## Routing rules
 
 1. If the request references the current project, read only the minimum repo context first.
 2. Turn the request into a compact structured prompt.
-3. Use the bundled `visual-forge` binary to generate the image.
+3. Use the bundled `gpt-imagen` binary to generate the image.
 4. If the user names an output path, pass `--out`.
 5. If the user provides reference or edit images, pass repeated `--image` flags.
 6. Report the saved file path and the provider path used.
@@ -43,17 +51,17 @@ Avoid: <negative constraints>
 ## Execution
 
 ```bash
-cat >/tmp/visual-forge-prompt.txt <<'EOF'
+cat >/tmp/gpt-imagen-prompt.txt <<'EOF'
 <structured prompt>
 EOF
 
-visual-forge --out <optional-path> - < /tmp/visual-forge-prompt.txt
+gpt-imagen --out <optional-path> - < /tmp/gpt-imagen-prompt.txt
 ```
 
 When images are present:
 
 ```bash
-visual-forge --image /abs/path/ref1.png --image /abs/path/ref2.png --out <optional-path> - < /tmp/visual-forge-prompt.txt
+gpt-imagen --image /abs/path/ref1.png --image /abs/path/ref2.png --out <optional-path> - < /tmp/gpt-imagen-prompt.txt
 ```
 
 ## Constraints
@@ -61,4 +69,3 @@ visual-forge --image /abs/path/ref1.png --image /abs/path/ref2.png --out <option
 - Do not use this for deterministic SVG or exact publication charts.
 - Do not claim exact typography or pixel-perfect interface fidelity.
 - Prefer one strong image first, then iterate.
-

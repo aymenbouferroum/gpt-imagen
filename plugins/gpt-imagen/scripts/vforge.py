@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Provider-aware image generation router for the Visual Forge Claude plugin."""
+"""Provider-aware image generation router for the GPT Imagen Claude plugin."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ import time
 import urllib.error
 import urllib.request
 import uuid
+from typing import NoReturn
 
 
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp"}
@@ -30,8 +31,8 @@ def plugin_option(name: str, default: str | None = None) -> str | None:
     return value if value not in (None, "") else default
 
 
-def fail(message: str, code: int = 1) -> None:
-    print(f"visual-forge: {message}", file=sys.stderr)
+def fail(message: str, code: int = 1) -> NoReturn:
+    print(f"gpt-imagen: {message}", file=sys.stderr)
     raise SystemExit(code)
 
 
@@ -53,7 +54,7 @@ def resolve_output_path(output_path: str | None, default_dir: str | None) -> pat
     else:
         base_dir = pathlib.Path(default_dir).expanduser() if default_dir else pathlib.Path.cwd()
         stamp = time.strftime("%Y%m%d-%H%M%S")
-        path = base_dir / f"visual-forge-{stamp}.png"
+        path = base_dir / f"gpt-imagen-{stamp}.png"
     if not path.is_absolute():
         path = pathlib.Path.cwd() / path
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -136,24 +137,24 @@ def run_codex(prompt: str, images: list[str], output_path: pathlib.Path, codex_m
             text=True,
             check=False,
         )
+
+        if proc.returncode != 0:
+            fail("codex image generation failed")
+
+        returned_text = result_file.read_text(encoding="utf-8", errors="ignore").strip() if result_file.exists() else ""
+        matched = PATH_RE.search(returned_text)
+        source = pathlib.Path(matched.group(1)) if matched else newest_codex_image(started)
+        if not source or not source.exists():
+            fail("could not locate the generated Codex image")
+
+        shutil.copy2(source, output_path)
+        return output_path
     finally:
-        pass
-
-    if proc.returncode != 0:
-        fail("codex image generation failed")
-
-    returned_text = result_file.read_text(encoding="utf-8", errors="ignore").strip() if result_file.exists() else ""
-    matched = PATH_RE.search(returned_text)
-    source = pathlib.Path(matched.group(1)) if matched else newest_codex_image(started)
-    if not source or not source.exists():
-        fail("could not locate the generated Codex image")
-
-    shutil.copy2(source, output_path)
-    return output_path
+        result_file.unlink(missing_ok=True)
 
 
 def encode_multipart_formdata(fields: list[tuple[str, str]], files: list[tuple[str, pathlib.Path]]) -> tuple[bytes, str]:
-    boundary = f"----VisualForge{uuid.uuid4().hex}"
+    boundary = f"----GptImagen{uuid.uuid4().hex}"
     chunks: list[bytes] = []
 
     for name, value in fields:
@@ -200,6 +201,8 @@ def run_openai(
     base_url = base_url.rstrip("/")
     if not api_key:
         fail("OpenAI API key is missing. Configure openai_api_key or set OPENAI_API_KEY.")
+    if model == "gpt-image-2" and background == "transparent":
+        fail("gpt-image-2 does not currently support transparent backgrounds on the direct API path. Use background=auto or opaque, or choose another GPT Image model.")
 
     if images or mask:
         url = f"{base_url}/images/edits"
@@ -269,11 +272,10 @@ def choose_provider(requested: str, has_api_key: bool) -> str:
     if has_api_key:
         return "openai"
     fail("no provider available. Log into Codex or configure an OpenAI API key.")
-    return "auto"
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Visual Forge image router")
+    parser = argparse.ArgumentParser(description="GPT Imagen image router")
     parser.add_argument("prompt", nargs="*", help="Prompt text. If omitted, prompt is read from stdin.")
     parser.add_argument("--provider", default=plugin_option("provider_mode", "auto"))
     parser.add_argument("--image", action="append", default=[], help="Input image path. Repeat for multiple images.")
@@ -302,7 +304,7 @@ def main() -> None:
         codex_model = args.model or plugin_option("codex_model", "gpt-5.4")
         final_path = run_codex(prompt, args.image, output_path, codex_model)
     else:
-        openai_model = args.model or plugin_option("openai_image_model", "gpt-image-2")
+        openai_model = args.model or plugin_option("openai_image_model", "gpt-image-2") or "gpt-image-2"
         openai_base_url = plugin_option("openai_base_url", "https://api.openai.com/v1")
         final_path = run_openai(
             prompt=prompt,

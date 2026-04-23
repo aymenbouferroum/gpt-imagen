@@ -11,7 +11,7 @@ Prompt Claude with:
 Claude should:
 
 - refine the prompt into a visual spec
-- call the bundled `visual-forge` binary
+- call the bundled `gpt-imagen` binary
 - save the result into your workspace if you ask for a file path
 
 ## 2. Game asset
@@ -49,4 +49,3 @@ It is not for plotting measured data. Use code-native plotting for final numeric
 ```
 
 If you need highly controlled masked edits, prefer the OpenAI API path and include a mask.
-

@@ -3,8 +3,8 @@
 ## Add the marketplace from GitHub
 
 ```bash
-claude plugin marketplace add YOUR_GITHUB_USERNAME/visual-forge-marketplace
-claude plugin install visual-forge-studio@visual-forge
+claude plugin marketplace add aymenbouferroum/gpt-imagen-marketplace
+claude plugin install gpt-imagen@gpt-imagen
 ```
 
 By default, Claude installs plugins at `user` scope, which makes them available globally across projects.
@@ -13,7 +13,7 @@ By default, Claude installs plugins at `user` scope, which makes them available 
 
 ```bash
 claude plugin marketplace add .
-claude plugin install visual-forge-studio@visual-forge
+claude plugin install gpt-imagen@gpt-imagen
 ```
 
 Run both commands from the repository root.
@@ -21,18 +21,20 @@ Run both commands from the repository root.
 ## Direct development mode
 
 ```bash
-claude --plugin-dir ./plugins/visual-forge-studio
+claude --plugin-dir ./plugins/gpt-imagen
 ```
 
 ## Provider setup
 
-Visual Forge supports two execution paths:
+GPT Imagen supports two execution paths:
 
 1. Codex subscription path
    Requirement: `codex` installed and `codex login status` succeeds.
 
 2. OpenAI API path
    Requirement: an OpenAI API key supplied through plugin configuration or `OPENAI_API_KEY`.
+
+The direct API path is GPT Image 2-first and defaults to `gpt-image-2`.
 
 On plugin enable, configure:
 
@@ -42,3 +44,5 @@ On plugin enable, configure:
 - `codex_model`: defaults to `gpt-5.4`
 
 `auto` prefers Codex when available, then falls back to the API path.
+
+If you stay on the direct API default, note that `gpt-image-2` currently does not support transparent backgrounds. Use `auto` or `opaque`, or pick another GPT Image model when transparency is required.

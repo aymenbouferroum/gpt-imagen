@@ -23,7 +23,7 @@ This skill is for product-facing visuals, not production frontend implementation
    - visual direction
    - negative space needs
 3. Prefer clean, intentional layouts over overloaded futuristic dashboards.
-4. Use `visual-forge` to generate the asset.
+4. Use `gpt-imagen` to generate the asset.
 
 ## Prompt additions
 
@@ -31,4 +31,3 @@ This skill is for product-facing visuals, not production frontend implementation
 - specify if browser chrome or device framing should be included
 - request restrained, credible UI density
 - avoid random lorem ipsum walls unless explicitly needed
-

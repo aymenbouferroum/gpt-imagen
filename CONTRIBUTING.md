@@ -9,7 +9,7 @@
 
 ## Development loop
 
-1. Edit the plugin under `plugins/visual-forge-studio/`
+1. Edit the plugin under `plugins/gpt-imagen/`
 2. Validate the repo:
 
 ```bash
@@ -19,23 +19,22 @@ claude plugin validate .
 3. Test the plugin directly:
 
 ```bash
-claude --plugin-dir ./plugins/visual-forge-studio
+claude --plugin-dir ./plugins/gpt-imagen
 ```
 
 4. Test the marketplace flow locally:
 
 ```bash
 claude plugin marketplace add .
-claude plugin install visual-forge-studio@visual-forge
+claude plugin install gpt-imagen@gpt-imagen
 ```
 
 ## Release notes
 
-- Bump the version in `plugins/visual-forge-studio/.claude-plugin/plugin.json`
+- Bump the version in `plugins/gpt-imagen/.claude-plugin/plugin.json`
 - Keep `CHANGELOG.md` current
 - Tag releases with:
 
 ```bash
-claude plugin tag ./plugins/visual-forge-studio
+claude plugin tag ./plugins/gpt-imagen
 ```
-
