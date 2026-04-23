@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Image generation, editing, and visual design workflows for Claude Code.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "plugins": [
     {
       "name": "gpt-imagen",
       "source": "./plugins/gpt-imagen",
       "description": "Generate and edit visuals for product design, frontend mockups, game assets, paper figures, and branded image workflows using Codex or the OpenAI Images API.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "GPT Imagen Contributors"
       },

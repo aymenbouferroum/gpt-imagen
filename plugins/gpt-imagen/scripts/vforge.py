@@ -74,8 +74,9 @@ def codex_logged_in() -> bool:
             capture_output=True,
             text=True,
             check=False,
+            shell=(sys.platform == "win32"),
         )
-    except OSError:
+    except (FileNotFoundError, OSError):
         return False
     text = (result.stdout + result.stderr).strip()
     return result.returncode == 0 and "Logged in" in text
@@ -139,6 +140,7 @@ def run_codex(prompt: str, images: list[str], output_path: pathlib.Path, codex_m
             input=build_codex_prompt(prompt, len(images)),
             text=True,
             check=False,
+            shell=(sys.platform == "win32"),
         )
 
         if proc.returncode != 0:

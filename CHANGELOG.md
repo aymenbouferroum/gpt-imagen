@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 - 2026-04-23
+
+- Fix Windows crash: Codex CLI installs as `.CMD` on Windows, which requires `shell=True` in subprocess calls
+- Fix provider routing: skills now instruct Claude to always run the binary instead of preemptively checking for API keys
+- Fix temp file leak in Codex path
+
 ## 1.0.0 - 2026-04-23
 
 - Initial release

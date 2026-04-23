@@ -1,6 +1,6 @@
 {
   "name": "gpt-imagen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Claude Code plugin for GPT Image 2-first image generation and editing workflows, with Codex convenience routing and direct OpenAI Images API execution.",
   "author": {
     "name": "GPT Imagen Contributors",

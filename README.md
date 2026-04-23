@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat" alt="License: MIT"></a>
-  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat" alt="Version 1.0.0">
+  <img src="https://img.shields.io/badge/version-1.0.1-blue?style=flat" alt="Version 1.0.0">
   <img src="https://img.shields.io/badge/platform-Claude%20Code-7C3AED?style=flat" alt="Platform: Claude Code">
   <img src="https://img.shields.io/badge/category-Design-orange?style=flat" alt="Category: Design">
   <img src="https://img.shields.io/badge/python-3%20(stdlib%20only)-yellow?style=flat" alt="Python 3 stdlib only">
