@@ -3,7 +3,7 @@
 ## Add the marketplace from GitHub
 
 ```bash
-claude plugin marketplace add aymenbouferroum/gpt-imagen-marketplace
+claude plugin marketplace add aymenbouferroum/gpt-imagen
 claude plugin install gpt-imagen@gpt-imagen
 ```
 

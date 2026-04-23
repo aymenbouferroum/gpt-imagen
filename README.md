@@ -75,7 +75,7 @@ This repo is intentionally pro GPT Image 2, but it does not make unsupported lea
 ### Marketplace install
 
 ```bash
-claude plugin marketplace add aymenbouferroum/gpt-imagen-marketplace
+claude plugin marketplace add aymenbouferroum/gpt-imagen
 claude plugin install gpt-imagen@gpt-imagen
 ```
 
@@ -159,7 +159,7 @@ OpenAI's image-generation tool docs also note that when using the image generati
 ## Repo structure
 
 ```text
-gpt-imagen-marketplace/
+gpt-imagen/
 ├── .claude-plugin/marketplace.json
 ├── docs/
 ├── assets/
